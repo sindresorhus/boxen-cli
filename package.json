@@ -1,0 +1,50 @@
+{
+  "name": "boxen-cli",
+  "version": "0.0.0",
+  "description": "Create boxes in the terminal",
+  "license": "MIT",
+  "repository": "sindresorhus/boxen-cli",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bin": {
+    "boxen": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "box",
+    "boxes",
+    "terminal",
+    "term",
+    "console",
+    "ascii",
+    "unicode",
+    "border",
+    "text"
+  ],
+  "dependencies": {
+    "boxen": "^0.2.0",
+    "get-stdin": "^5.0.1",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.1.1",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
