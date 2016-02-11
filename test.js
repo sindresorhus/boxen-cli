@@ -28,9 +28,9 @@ test('stdin', async t => {
 });
 
 test('option `--border-style` - named', async t => {
-	t.is((await execa('./cli.js', ['a', '--border-style', 'double'])).stdout, fixtureDouble);
+	t.is((await execa('./cli.js', ['a', '--border-style=double'])).stdout, fixtureDouble);
 });
 
 test('option `--border-style` - custom', async t => {
-	t.is((await execa('./cli.js', ['a', '--border-style', '123456'])).stdout, fixtureCustom);
+	t.is((await execa('./cli.js', ['a', '--border-style=123456'])).stdout, fixtureCustom);
 });

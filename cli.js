@@ -12,7 +12,7 @@ const cli = meow(`
 	Options
 	  --border-color  Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
 	  --border-style  Style of the box border [single|double|round|single-double|double-single]
-	                  Can also be passed as a string specifying the characters to use. See example below.
+	                  Can also be specified as the characters to use. See below example.
 	  --padding       Space between the text and box border
 	  --margin        Space around the box
 
@@ -40,18 +40,19 @@ const input = cli.input;
 
 function cleanupBorderStyle(borderStyle) {
 	if (!borderStyle) {
-		// no borderStyle was specified
 		return 'single';
 	}
+
 	if (borderStyle in boxen._borderStyles) {
-		// a known named style was specified
 		return borderStyle;
 	}
+
 	if (borderStyle.length !== 6) {
 		console.error('Specified custom border style is invalid');
 		process.exit(1);
 	}
-	// A string with 6 characters was given, make it a boxen-borderStyle object
+
+	// a string of 6 characters was given, make it a borderStyle object
 	return {
 		topLeft: borderStyle[0],
 		topRight: borderStyle[1],
