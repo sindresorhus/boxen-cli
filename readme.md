@@ -22,11 +22,13 @@ $ boxen --help
     $ echo <string> | boxen
 
   Options
-    --border-color  Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
-    --border-style  Style of the box border [single|double|round|single-double|double-single]
-                    Can also be specified as the characters to use. See below example.
-    --padding       Space between the text and box border
-    --margin        Space around the box
+    --border-color      Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
+    --background-color  Color of the background [black|red|green|yellow|blue|magenta|cyan|white]
+    --border-style      Style of the box border [single|double|round|single-double|double-single|classic]
+                        Can also be specified as the characters to use. See below example.
+    --dim-border        Reduce opacity of border
+    --padding           Space between the text and box border
+    --margin            Space around the box
 
   Examples
     $ boxen I ❤ unicorns
