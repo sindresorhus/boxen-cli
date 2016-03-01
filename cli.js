@@ -11,8 +11,9 @@ const cli = meow(`
 
 	Options
 	  --border-color  Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
-	  --border-style  Style of the box border [single|double|round|single-double|double-single]
+	  --border-style  Style of the box border [single|double|round|single-double|double-single|classic]
 	                  Can also be specified as the characters to use. See below example.
+	  --dim-border     Reduce opacity of border
 	  --padding       Space between the text and box border
 	  --margin        Space around the box
 
