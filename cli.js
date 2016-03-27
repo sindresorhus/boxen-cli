@@ -3,6 +3,7 @@
 const meow = require('meow');
 const getStdin = require('get-stdin');
 const boxen = require('boxen');
+const indentString = require('indent-string');
 
 const cli = meow(`
 	Usage
@@ -17,6 +18,7 @@ const cli = meow(`
 	  --dim-border        Reduce opacity of border
 	  --padding           Space between the text and box border
 	  --margin            Space around the box
+	  --center            Center the box
 
 	Examples
 	  $ boxen I ❤ unicorns
@@ -35,7 +37,8 @@ const cli = meow(`
 	  3----------4
 
 `, {
-	string: 'border-style'
+	string: 'border-style',
+	boolean: 'center'
 });
 
 const input = cli.input;
@@ -67,7 +70,15 @@ function cleanupBorderStyle(borderStyle) {
 
 function init(data) {
 	cli.flags.borderStyle = cleanupBorderStyle(cli.flags.borderStyle);
-	console.log(boxen(data, cli.flags));
+	cli.flags.margin = cli.flags.center ? undefined : cli.flags.margin;
+	let box = boxen(data, cli.flags);
+
+	if (cli.flags.center) {
+		const boxLength = box.split('\n')[0];
+		box = indentString(box, ' ', (process.stdout.columns - boxLength.length) / 2);
+	}
+
+	console.log(box);
 }
 
 if (input.length === 0 && process.stdin.isTTY) {
