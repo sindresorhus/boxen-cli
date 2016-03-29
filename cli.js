@@ -68,14 +68,34 @@ function cleanupBorderStyle(borderStyle) {
 	};
 }
 
+function parseMargin(opts) {
+	if (!opts.margin) {
+		return;
+	}
+
+	if (opts.center) {
+		return {
+			top: opts.margin,
+			bottom: opts.margin
+		};
+	}
+
+	return opts.margin;
+}
+
+function calculateBoxLength(box, opts) {
+	const lineNumber = opts.margin ? opts.margin.top || opts.margin : 0;
+	return box.split('\n')[lineNumber].length;
+}
+
 function init(data) {
 	cli.flags.borderStyle = cleanupBorderStyle(cli.flags.borderStyle);
-	cli.flags.margin = cli.flags.center ? undefined : cli.flags.margin;
+	cli.flags.margin = parseMargin(cli.flags);
 	let box = boxen(data, cli.flags);
 
 	if (cli.flags.center) {
-		const boxLength = box.split('\n')[0];
-		box = indentString(box, ' ', (process.stdout.columns - boxLength.length) / 2);
+		const boxLength = calculateBoxLength(box, cli.flags);
+		box = indentString(box, ' ', (process.stdout.columns - boxLength) / 2);
 	}
 
 	console.log(box);
