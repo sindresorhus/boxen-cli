@@ -29,6 +29,7 @@ $ boxen --help
     --dim-border        Reduce opacity of border
     --padding           Space between the text and box border
     --margin            Space around the box
+    --center            Center the box
 
   Examples
     $ boxen I ❤ unicorns

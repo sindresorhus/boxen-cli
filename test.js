@@ -7,6 +7,12 @@ const fixtureDefault = `
 └─┘
 `.trim();
 
+const fixtureMargin = `
+   ┌─┐
+   │a│
+   └─┘
+`;
+
 const fixtureDouble = `
 ╔═╗
 ║a║
@@ -25,6 +31,10 @@ test('main', async t => {
 
 test('stdin', async t => {
 	t.is((await execa.shell(`echo a | ./cli.js`)).stdout, fixtureDefault);
+});
+
+test('option `--margin`', async t => {
+	t.is((await execa('./cli.js', ['a', '--margin', '1'])).stdout, fixtureMargin);
 });
 
 test('option `--border-style` - named', async t => {
