@@ -30,6 +30,7 @@ $ boxen --help
     --padding           Space between the text and box border
     --margin            Space around the box
     --center            Center the box
+    --align             Align the text [left|center|right] (Default: left)
 
   Examples
     $ boxen I ❤ unicorns
@@ -46,6 +47,7 @@ $ boxen --help
     1----------2
     |ASCII ftw!|
     3----------4
+
 ```
 
 
@@ -56,4 +58,4 @@ $ boxen --help
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

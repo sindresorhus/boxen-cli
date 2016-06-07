@@ -19,6 +19,7 @@ const cli = meow(`
 	  --padding           Space between the text and box border
 	  --margin            Space around the box
 	  --center            Center the box
+	  --align             Align the text [left|center|right] (Default: left)
 
 	Examples
 	  $ boxen I ❤ unicorns
