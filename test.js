@@ -26,21 +26,21 @@ const fixtureCustom = `
 `.trim();
 
 test('main', async t => {
-	t.is((await execa('./cli.js', ['a'])).stdout, fixtureDefault);
+	t.is(await execa.stdout('./cli.js', ['a']), fixtureDefault);
 });
 
 test('stdin', async t => {
-	t.is((await execa('./cli.js', {input: 'a'})).stdout, fixtureDefault);
+	t.is(await execa.stdout('./cli.js', {input: 'a'}), fixtureDefault);
 });
 
 test('option `--margin`', async t => {
-	t.is((await execa('./cli.js', ['a', '--margin', '1'])).stdout, fixtureMargin);
+	t.is(await execa.stdout('./cli.js', ['a', '--margin', '1']), fixtureMargin);
 });
 
 test('option `--border-style` - named', async t => {
-	t.is((await execa('./cli.js', ['a', '--border-style=double'])).stdout, fixtureDouble);
+	t.is(await execa.stdout('./cli.js', ['a', '--border-style=double']), fixtureDouble);
 });
 
 test('option `--border-style` - custom', async t => {
-	t.is((await execa('./cli.js', ['a', '--border-style=123456'])).stdout, fixtureCustom);
+	t.is(await execa.stdout('./cli.js', ['a', '--border-style=123456']), fixtureCustom);
 });
