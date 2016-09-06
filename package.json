@@ -35,9 +35,9 @@
     "text"
   ],
   "dependencies": {
-    "boxen": "^0.6.0",
+    "boxen": "^0.8.0",
     "get-stdin": "^5.0.1",
-    "indent-string": "^2.1.0",
+    "indent-string": "^3.0.0",
     "meow": "^3.7.0"
   },
   "devDependencies": {

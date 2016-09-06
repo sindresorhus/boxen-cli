@@ -30,7 +30,7 @@ test('main', async t => {
 });
 
 test('stdin', async t => {
-	t.is((await execa.shell(`echo a | ./cli.js`)).stdout, fixtureDefault);
+	t.is((await execa('./cli.js', {input: 'a'})).stdout, fixtureDefault);
 });
 
 test('option `--margin`', async t => {

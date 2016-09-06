@@ -96,7 +96,7 @@ function init(data) {
 
 	if (cli.flags.center) {
 		const boxLength = calculateBoxLength(box, cli.flags);
-		box = indentString(box, ' ', (process.stdout.columns - boxLength) / 2);
+		box = indentString(box, (process.stdout.columns - boxLength) / 2);
 	}
 
 	console.log(box);
