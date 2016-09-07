@@ -30,6 +30,7 @@ $ boxen --help
     --padding           Space between the text and box border
     --margin            Space around the box
     --center            Center the box
+    --right             Align the box to the right
     --align             Align the text [left|center|right] (Default: left)
 
   Examples

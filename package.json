@@ -1,6 +1,6 @@
 {
   "name": "boxen-cli",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Create boxes in the terminal",
   "license": "MIT",
   "repository": "sindresorhus/boxen-cli",
@@ -12,6 +12,7 @@
   "bin": {
     "boxen": "cli.js"
   },
+  "preferGlobal": true,
   "engines": {
     "node": ">=4"
   },

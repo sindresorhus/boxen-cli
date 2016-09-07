@@ -7,6 +7,14 @@ const fixtureDefault = `
 └─┘
 `.trim();
 
+const fixtureCenteredText = `
+┌───────┐
+│       │
+│   a   │
+│       │
+└───────┘
+`.trim();
+
 const fixtureMargin = `
    ┌─┐
    │a│
@@ -31,6 +39,10 @@ test('main', async t => {
 
 test('stdin', async t => {
 	t.is(await execa.stdout('./cli.js', {input: 'a'}), fixtureDefault);
+});
+
+test('option `--align` center', async t => {
+	t.is(await execa.stdout('./cli.js', ['a', '--align', 'center', '--padding', '1']), fixtureCenteredText);
 });
 
 test('option `--margin`', async t => {
