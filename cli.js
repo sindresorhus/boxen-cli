@@ -19,6 +19,7 @@ const cli = meow(`
 	  --padding           Space between the text and box border
 	  --margin            Space around the box
 	  --center            Center the box
+	  --right			  Align the box to the right
 	  --align             Align the text [left|center|right] (Default: left)
 
 	Examples
@@ -94,9 +95,13 @@ function init(data) {
 	cli.flags.margin = parseMargin(cli.flags);
 	let box = boxen(data, cli.flags);
 
+	let boxLength;
 	if (cli.flags.center) {
-		const boxLength = calculateBoxLength(box, cli.flags);
+		boxLength = calculateBoxLength(box, cli.flags);
 		box = indentString(box, (process.stdout.columns - boxLength) / 2);
+	} else if (cli.flags.right) {
+		boxLength = calculateBoxLength(box, cli.flags);
+		box = indentString(box, (process.stdout.columns - boxLength));
 	}
 
 	console.log(box);
