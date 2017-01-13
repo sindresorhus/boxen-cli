@@ -35,17 +35,14 @@
     "text"
   ],
   "dependencies": {
-    "boxen": "^0.8.0",
+    "boxen": "^1.0.0",
     "get-stdin": "^5.0.1",
     "indent-string": "^3.0.0",
     "meow": "^3.7.0"
   },
   "devDependencies": {
     "ava": "*",
-    "execa": "^0.4.0",
+    "execa": "^0.6.0",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }
