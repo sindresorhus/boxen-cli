@@ -1,4 +1,4 @@
-# boxen-cli [![Build Status](https://travis-ci.org/sindresorhus/boxen-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/boxen-cli)
+# boxen-cli
 
 > Create boxes in the terminal
 
