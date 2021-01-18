@@ -11,15 +11,15 @@ const cli = meow(`
 	  $ echo <string> | boxen
 
 	Options
-	  --border-color	  Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
+	  --border-color      Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
 	  --background-color  Color of the background [black|red|green|yellow|blue|magenta|cyan|white]
-	  --border-style	  Style of the box border [single|double|round|single-double|double-single|classic]
-						  Can also be specified as the characters to use. See below example.
-	  --dim-border		  Reduce opacity of border
-	  --padding			  Space between the text and box border
-	  --margin			  Space around the box
-	  --center			  Center the box
-	  --align			  Align the text [left|center|right] (Default: left)
+	  --border-style      Style of the box border [single|double|round|single-double|double-single|classic]
+	                      Can also be specified as the characters to use. See below example.
+	  --dim-border        Reduce opacity of border
+	  --padding           Space between the text and box border
+	  --margin            Space around the box
+	  --center            Center the box
+	  --align             Align the text [left|center|right] (Default: left)
 
 	Examples
 	  $ boxen I ❤ unicorns
