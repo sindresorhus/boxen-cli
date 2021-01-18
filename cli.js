@@ -38,11 +38,17 @@ const cli = meow(`
 	  3----------4
 
 `, {
-	string: 'border-style',
-	boolean: 'center'
+	flags: {
+		borderStyle: {
+			type: 'string'
+		},
+		center: {
+			type: 'boolean'
+		}
+	}
 });
 
-const input = cli.input;
+const {input} = cli;
 
 function cleanupBorderStyle(borderStyle) {
 	if (!borderStyle) {
@@ -58,7 +64,7 @@ function cleanupBorderStyle(borderStyle) {
 		process.exit(1);
 	}
 
-	// a string of 6 characters was given, make it a borderStyle object
+	// A string of 6 characters was given, make it a borderStyle object
 	return {
 		topLeft: borderStyle[0],
 		topRight: borderStyle[1],
@@ -69,23 +75,23 @@ function cleanupBorderStyle(borderStyle) {
 	};
 }
 
-function parseMargin(opts) {
-	if (!opts.margin) {
+function parseMargin(options) {
+	if (!options.margin) {
 		return;
 	}
 
-	if (opts.center) {
+	if (options.center) {
 		return {
-			top: opts.margin,
-			bottom: opts.margin
+			top: options.margin,
+			bottom: options.margin
 		};
 	}
 
-	return opts.margin;
+	return options.margin;
 }
 
-function calculateBoxLength(box, opts) {
-	const lineNumber = opts.margin ? opts.margin.top || opts.margin : 0;
+function calculateBoxLength(box, options) {
+	const lineNumber = options.margin ? options.margin.top || options.margin : 0;
 	return box.split('\n')[lineNumber].length;
 }
 
@@ -110,5 +116,6 @@ if (input.length === 0 && process.stdin.isTTY) {
 if (input.length > 0) {
 	init(input.join(' '));
 } else {
+	// eslint-disable-next-line promise/prefer-await-to-then
 	getStdin().then(x => init(x.replace(/\n$/, '')));
 }
