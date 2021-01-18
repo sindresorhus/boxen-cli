@@ -113,9 +113,11 @@ if (input.length === 0 && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-if (input.length > 0) {
-	init(input.join(' '));
-} else {
-	// eslint-disable-next-line promise/prefer-await-to-then
-	getStdin().then(x => init(x.replace(/\n$/, '')));
-}
+(async () => {
+	if (input.length > 0) {
+		init(input.join(' '));
+	} else {
+		const stdin = await getStdin();
+		init(stdin.replace(/\n$/, ''));
+	}
+})();

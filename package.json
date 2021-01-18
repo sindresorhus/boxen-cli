@@ -1,48 +1,49 @@
 {
-  "name": "boxen-cli",
-  "version": "1.0.0",
-  "description": "Create boxes in the terminal",
-  "license": "MIT",
-  "repository": "sindresorhus/boxen-cli",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "bin": {
-    "boxen": "cli.js"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "cli.js"
-  ],
-  "keywords": [
-    "cli-app",
-    "cli",
-    "box",
-    "boxes",
-    "terminal",
-    "term",
-    "console",
-    "ascii",
-    "unicode",
-    "border",
-    "text"
-  ],
-  "dependencies": {
-    "boxen": "^5.0.0",
-    "get-stdin": "^8.0.0",
-    "indent-string": "^4.0.0",
-    "meow": "^9.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "execa": "^0.6.0",
-    "xo": "*"
-  }
+	"name": "boxen-cli",
+	"version": "1.0.0",
+	"description": "Create boxes in the terminal",
+	"license": "MIT",
+	"repository": "sindresorhus/boxen-cli",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"bin": {
+		"boxen": "cli.js"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"cli-app",
+		"cli",
+		"box",
+		"boxes",
+		"terminal",
+		"term",
+		"console",
+		"ascii",
+		"unicode",
+		"border",
+		"text"
+	],
+	"dependencies": {
+		"boxen": "^5.0.0",
+		"get-stdin": "^8.0.0",
+		"indent-string": "^4.0.0",
+		"meow": "^9.0.0"
+	},
+	"devDependencies": {
+		"ava": "^3.15.0",
+		"execa": "^0.6.0",
+		"xo": "^0.37.1"
+	}
 }

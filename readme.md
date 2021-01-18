@@ -4,13 +4,11 @@
 
 <img src="https://github.com/sindresorhus/boxen/blob/master/screenshot.png" width="300">
 
-
 ## Install
 
 ```
 $ npm install --global boxen-cli
 ```
-
 
 ## Usage
 
@@ -50,12 +48,6 @@ $ boxen --help
 
 ```
 
-
 ## Related
 
 - [boxen](https://github.com/sindresorhus/boxen) - API for this module
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
