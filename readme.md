@@ -2,7 +2,7 @@
 
 > Create boxes in the terminal
 
-<img src="https://github.com/sindresorhus/boxen/blob/master/screenshot.png" width="300">
+<img src="screenshot.png" width="300">
 
 ## Install
 
