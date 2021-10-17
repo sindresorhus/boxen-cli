@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import process from 'node:process';
 import meow from 'meow';
 import getStdin from 'get-stdin';
 import boxen, {_borderStyles} from 'boxen';
@@ -41,15 +42,15 @@ const cli = meow(`
 	importMeta: import.meta,
 	flags: {
 		borderStyle: {
-			type: 'string'
+			type: 'string',
 		},
 		center: {
-			type: 'boolean'
+			type: 'boolean',
 		},
 		width: {
-			type: 'number'
-		}
-	}
+			type: 'number',
+		},
+	},
 });
 
 const {input} = cli;
@@ -78,7 +79,7 @@ function cleanupBorderStyle(borderStyle) {
 			top: borderStyle[4],
 			bottom: borderStyle[5],
 			left: borderStyle[6],
-			right: borderStyle[7]
+			right: borderStyle[7],
 		};
 	}
 
@@ -94,7 +95,7 @@ function parseMargin(options) {
 	if (options.center) {
 		return {
 			top: options.margin,
-			bottom: options.margin
+			bottom: options.margin,
 		};
 	}
 
