@@ -42,10 +42,10 @@ $ boxen --help
     │…like everyone│
     ╘══════════════╛
 
-    $ boxen --border-style='1234-|]^' ASCII ftw!
+    $ boxen --border-style='1234-~|║' ASCII ftw!
     1----------2
-    |ASCII ftw!]
-    3^^^^^^^^^^4
+    |ASCII ftw!║
+    3~~~~~~~~~~4
 
 ```
 

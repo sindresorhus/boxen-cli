@@ -32,10 +32,10 @@ const cli = meow(`
 	  │…like everyone│
 	  ╘══════════════╛
 
-	  $ boxen --border-style='1234-|]^' ASCII ftw!
+	  $ boxen --border-style='1234-~|║' ASCII ftw!
 	  1----------2
-	  |ASCII ftw!]
-	  3^^^^^^^^^^4
+	  |ASCII ftw!║
+	  3~~~~~~~~~~4
 
 `, {
 	importMeta: import.meta,
@@ -65,7 +65,7 @@ function cleanupBorderStyle(borderStyle) {
 
 	// Convert old borderStyle format (6 characters) to new one (8 characters)
 	if (borderStyle.length === 6) {
-		borderStyle += borderStyle[5] + borderStyle[4];
+		borderStyle = borderStyle.slice(0, 5) + borderStyle[4] + borderStyle[5].repeat(2);
 	}
 
 	// A string of 8 characters was given, make it a borderStyle object
@@ -76,9 +76,9 @@ function cleanupBorderStyle(borderStyle) {
 			bottomLeft: borderStyle[2],
 			bottomRight: borderStyle[3],
 			top: borderStyle[4],
-			left: borderStyle[5],
-			right: borderStyle[6],
-			bottom: borderStyle[7]
+			bottom: borderStyle[5],
+			left: borderStyle[6],
+			right: borderStyle[7]
 		};
 	}
 

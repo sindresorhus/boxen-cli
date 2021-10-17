@@ -33,8 +33,8 @@ const fixtureCustomOldFormat = `
 
 const fixtureCustom = `
 152
-6a7
-384
+7a8
+364
 `.trim();
 
 test('main', async t => {
