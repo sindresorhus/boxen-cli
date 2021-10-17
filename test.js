@@ -1,5 +1,5 @@
-const test = require('ava');
-const execa = require('execa');
+import test from 'ava';
+import execa from 'execa';
 
 const fixtureDefault = `
 ┌─┐
@@ -19,10 +19,22 @@ const fixtureDouble = `
 ╚═╝
 `.trim();
 
-const fixtureCustom = `
+const fixtureWidth = `
+┌───────┐
+│a      │
+└───────┘
+`.trim();
+
+const fixtureCustomOldFormat = `
 152
 6a6
 354
+`.trim();
+
+const fixtureCustom = `
+152
+6a7
+384
 `.trim();
 
 test('main', async t => {
@@ -41,6 +53,14 @@ test('option `--border-style` - named', async t => {
 	t.is(await execa.stdout('./cli.js', ['a', '--border-style=double']), fixtureDouble);
 });
 
+test('option `--border-style` - custom old format', async t => {
+	t.is(await execa.stdout('./cli.js', ['a', '--border-style=123456']), fixtureCustomOldFormat);
+});
+
 test('option `--border-style` - custom', async t => {
-	t.is(await execa.stdout('./cli.js', ['a', '--border-style=123456']), fixtureCustom);
+	t.is(await execa.stdout('./cli.js', ['a', '--border-style=12345678']), fixtureCustom);
+});
+
+test('option `--width`', async t => {
+	t.is(await execa.stdout('./cli.js', ['a', '--width=9']), fixtureWidth);
 });

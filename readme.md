@@ -29,6 +29,7 @@ $ boxen --help
     --margin            Space around the box
     --center            Center the box
     --align             Align the text [left|center|right] (Default: left)
+    --width             Set a fixed width for the box
 
   Examples
     $ boxen I ❤ unicorns
@@ -41,10 +42,10 @@ $ boxen --help
     │…like everyone│
     ╘══════════════╛
 
-    $ boxen --border-style='1234-|' ASCII ftw!
+    $ boxen --border-style='1234-|]^' ASCII ftw!
     1----------2
-    |ASCII ftw!|
-    3----------4
+    |ASCII ftw!]
+    3^^^^^^^^^^4
 
 ```
 
