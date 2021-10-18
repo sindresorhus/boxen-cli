@@ -6,8 +6,8 @@
 
 ## Install
 
-```
-$ npm install --global boxen-cli
+```sh
+npm install --global boxen-cli
 ```
 
 ## Usage
@@ -46,7 +46,6 @@ $ boxen --help
     1----------2
     |ASCII ftw!║
     3~~~~~~~~~~4
-
 ```
 
 ## Related

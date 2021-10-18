@@ -12,7 +12,7 @@
 	},
 	"type": "module",
 	"bin": {
-		"boxen": "cli.js"
+		"boxen": "./cli.js"
 	},
 	"engines": {
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
