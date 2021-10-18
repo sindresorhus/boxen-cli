@@ -2,8 +2,6 @@
 
 > Create boxes in the terminal
 
-<img src="screenshot.png" width="300">
-
 ## Install
 
 ```sh
