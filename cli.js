@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const getStdin = require('get-stdin');
-const boxen = require('boxen');
-const indentString = require('indent-string');
+import process from 'node:process';
+import meow from 'meow';
+import getStdin from 'get-stdin';
+import boxen, {_borderStyles} from 'boxen';
+import indentString from 'indent-string';
 
 const cli = meow(`
 	Usage
@@ -20,6 +20,7 @@ const cli = meow(`
 	  --margin            Space around the box
 	  --center            Center the box
 	  --align             Align the text [left|center|right] (Default: left)
+	  --width             Set a fixed width for the box
 
 	Examples
 	  $ boxen I ❤ unicorns
@@ -32,20 +33,24 @@ const cli = meow(`
 	  │…like everyone│
 	  ╘══════════════╛
 
-	  $ boxen --border-style='1234-|' ASCII ftw!
+	  $ boxen --border-style='1234-~|║' ASCII ftw!
 	  1----------2
-	  |ASCII ftw!|
-	  3----------4
+	  |ASCII ftw!║
+	  3~~~~~~~~~~4
 
 `, {
+	importMeta: import.meta,
 	flags: {
 		borderStyle: {
-			type: 'string'
+			type: 'string',
 		},
 		center: {
-			type: 'boolean'
-		}
-	}
+			type: 'boolean',
+		},
+		width: {
+			type: 'number',
+		},
+	},
 });
 
 const {input} = cli;
@@ -55,24 +60,31 @@ function cleanupBorderStyle(borderStyle) {
 		return 'single';
 	}
 
-	if (borderStyle in boxen._borderStyles) {
+	if (borderStyle in _borderStyles) {
 		return borderStyle;
 	}
 
-	if (borderStyle.length !== 6) {
-		console.error('Specified custom border style is invalid');
-		process.exit(1);
+	// Convert old borderStyle format (6 characters) to new one (8 characters)
+	if (borderStyle.length === 6) {
+		borderStyle = borderStyle.slice(0, 5) + borderStyle[4] + borderStyle[5].repeat(2);
 	}
 
-	// A string of 6 characters was given, make it a borderStyle object
-	return {
-		topLeft: borderStyle[0],
-		topRight: borderStyle[1],
-		bottomLeft: borderStyle[2],
-		bottomRight: borderStyle[3],
-		horizontal: borderStyle[4],
-		vertical: borderStyle[5]
-	};
+	// A string of 8 characters was given, make it a borderStyle object
+	if (borderStyle.length === 8) {
+		return {
+			topLeft: borderStyle[0],
+			topRight: borderStyle[1],
+			bottomLeft: borderStyle[2],
+			bottomRight: borderStyle[3],
+			top: borderStyle[4],
+			bottom: borderStyle[5],
+			left: borderStyle[6],
+			right: borderStyle[7],
+		};
+	}
+
+	console.error('Specified custom border style is invalid');
+	process.exit(1);
 }
 
 function parseMargin(options) {
@@ -83,7 +95,7 @@ function parseMargin(options) {
 	if (options.center) {
 		return {
 			top: options.margin,
-			bottom: options.margin
+			bottom: options.margin,
 		};
 	}
 
