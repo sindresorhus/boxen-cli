@@ -13,7 +13,7 @@ const cli = meow(`
 	Options
 	  --border-color      Color of the box border [black|red|green|yellow|blue|magenta|cyan|white|gray]
 	  --background-color  Color of the background [black|red|green|yellow|blue|magenta|cyan|white]
-	  --border-style      Style of the box border [single|double|round|single-double|double-single|classic]
+	  --border-style      Style of the box border [single|double|round|singleDouble|doubleSingle|classic]
 	                      Can also be specified as the characters to use. See below example.
 	  --dim-border        Reduce opacity of border
 	  --padding           Space between the text and box border
@@ -28,7 +28,7 @@ const cli = meow(`
 	  │I ❤ unicorns│
 	  └────────────┘
 
-	  $ boxen --border-style=double-single …like everyone
+	  $ boxen --border-style=doubleSingle …like everyone
 	  ╒══════════════╕
 	  │…like everyone│
 	  ╘══════════════╛
