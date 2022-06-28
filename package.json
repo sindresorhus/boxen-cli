@@ -37,7 +37,7 @@
 		"text"
 	],
 	"dependencies": {
-		"boxen": "^6.2.1",
+		"boxen": "^7.0.0",
 		"get-stdin": "^9.0.0",
 		"indent-string": "^5.0.0",
 		"meow": "^10.1.1"
