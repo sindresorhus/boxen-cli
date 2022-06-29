@@ -69,23 +69,23 @@ const cli = meow(`
 		},
 		align: {
 			type: 'string',
-			alias: 'a'
+			alias: 'a',
 		},
 		title: {
 			type: 'string',
-			alias: 't'
+			alias: 't',
 		},
 		width: {
 			type: 'number',
-			alias: 'w'
+			alias: 'w',
 		},
 		height: {
 			type: 'number',
-			alias: 'h'
+			alias: 'h',
 		},
 		fullscreen: {
 			type: 'boolean',
-			alias: 'f'
+			alias: 'f',
 		},
 	},
 });
