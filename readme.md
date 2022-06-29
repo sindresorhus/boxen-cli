@@ -28,12 +28,12 @@ $ boxen --help
     --padding           Space between the text and box border
     --margin            Space around the box
     --center            Center the box
-    --align             Align the text [left|center|right] (Default: left)
-    --title             Display a title at the top of the box.
+	  --align, -a         Align the text [left|center|right] (Default: left)
+	  --title, -t         Display a title at the top of the box.
 	  --title-alignment   Align the title in the top bar [left|center|right].
-	  --width             Set a fixed width for the box
-	  --height            Set a fixed height for the box
-	  --fullscreen        Fit all available space within the terminal.
+	  --width, -w         Set a fixed width for the box
+	  --height, -h        Set a fixed height for the box
+	  --fullscreen, -f    Fit all available space within the terminal.
 
   Examples
     $ boxen I ❤ unicorns
@@ -50,6 +50,18 @@ $ boxen --help
     1----------2
     |ASCII ftw!║
     3~~~~~~~~~~4
+
+    $ boxen --align=center --width=16 Rainbows are so cool!
+	  ┌──────────────┐
+	  │ Rainbows are │
+	  │   so cool!   │
+	  └──────────────┘
+
+	  $ boxen --title='Yes it is' --title-alignment=center Is that a centered title?
+
+	  ┌─────── Yes it is ───────┐
+	  │Is that a centered title?│
+	  └─────────────────────────┘
 ```
 
 ## Related
