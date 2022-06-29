@@ -29,7 +29,11 @@ $ boxen --help
     --margin            Space around the box
     --center            Center the box
     --align             Align the text [left|center|right] (Default: left)
-    --width             Set a fixed width for the box
+    --title             Display a title at the top of the box.
+	  --title-alignment   Align the title in the top bar [left|center|right].
+	  --width             Set a fixed width for the box
+	  --height            Set a fixed height for the box
+	  --fullscreen        Fit all available space within the terminal.
 
   Examples
     $ boxen I ❤ unicorns
