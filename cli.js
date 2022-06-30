@@ -20,7 +20,11 @@ const cli = meow(`
 	  --margin            Space around the box
 	  --center            Center the box
 	  --align             Align the text [left|center|right] (Default: left)
+	  --title             Display a title at the top of the box.
+	  --title-alignment   Align the title in the top bar [left|center|right].
 	  --width             Set a fixed width for the box
+	  --height            Set a fixed height for the box
+	  --fullscreen        Fit all available space within the terminal.
 
 	Examples
 	  $ boxen I ❤ unicorns
@@ -38,6 +42,17 @@ const cli = meow(`
 	  |ASCII ftw!║
 	  3~~~~~~~~~~4
 
+	  $ boxen --align=center --width=16 'Rainbows are so cool!'
+	  ┌──────────────┐
+	  │ Rainbows are │
+	  │   so cool!   │
+	  └──────────────┘
+
+	  $ boxen --title='Yes it is' --title-alignment=center 'Is that a centered title?'
+
+	  ┌─────── Yes it is ───────┐
+	  │Is that a centered title?│
+	  └─────────────────────────┘
 `, {
 	importMeta: import.meta,
 	flags: {
@@ -47,8 +62,20 @@ const cli = meow(`
 		center: {
 			type: 'boolean',
 		},
+		align: {
+			type: 'string',
+		},
+		title: {
+			type: 'string',
+		},
 		width: {
 			type: 'number',
+		},
+		height: {
+			type: 'number',
+		},
+		fullscreen: {
+			type: 'boolean',
 		},
 	},
 });
